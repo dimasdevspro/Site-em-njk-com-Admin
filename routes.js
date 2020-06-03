@@ -1,13 +1,18 @@
 const express = require ('express')
 const routes = express.Router()
 const revenue = require('./controllers/revenue')
-const revenues = require('./controllers/revenues')
 
+routes.get("/", function(req, res){
+    return res.render("/revenue")
+})
 routes.get("/revenue", revenue.index)
-routes.get("/revenues/create", revenues.create)
-routes.get("/revenues/:id", revenues.show)
-routes.get("/revenues/:id/edit", revenues.edit)
+routes.get("/revenue/create", revenue.create)
+routes.get("/revenue/:id", revenue.show)
+routes.get("/revenue/:id/edit", revenue.edit)
 
-routes.post("revenues", revenues.post)
-routes.put("revenues", revenues.put)
-routes.delete("revenues", revenues.delete)
+routes.post("revenue", revenue.post)
+routes.put("revenue", revenue.put)
+routes.delete("revenue", revenue.delete)
+
+module.exports = routes
+
